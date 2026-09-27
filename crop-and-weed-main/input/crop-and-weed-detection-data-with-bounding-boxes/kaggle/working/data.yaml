@@ -1,0 +1,5 @@
+
+train: c:/Users/Dukare sakshi kisan/Desktop/crop-and-weed-main/crop-and-weed-main/input/crop-and-weed-detection-data-with-bounding-boxes/kaggle/working/images/train
+val: c:/Users/Dukare sakshi kisan/Desktop/crop-and-weed-main/crop-and-weed-main/input/crop-and-weed-detection-data-with-bounding-boxes/kaggle/working/images/val
+nc: 2
+names: ['crop', 'weed']

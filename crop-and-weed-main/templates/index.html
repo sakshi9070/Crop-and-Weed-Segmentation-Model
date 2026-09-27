@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop & Weed Segmentation AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🌱 Adaptive Crop & Weed Segmentation AI</h1>
+        <p>Upload an agricultural image to segment crops and weeds automatically.</p>
+    </header>
+
+    <main class="container">
+        <section class="controls-panel">
+            <h2>Image Input</h2>
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="imageUpload" accept="image/*" hidden>
+                <label for="imageUpload" class="upload-button">
+                    Click or Drag Image Here
+                </label>
+                <p>Supported formats: JPG, PNG</p>
+            </div>
+            
+            <div class="model-options">
+                <h3>Segmentation Settings</h3>
+                <label for="algorithmSelect">AI Model:</label>
+                <select id="algorithmSelect">
+                    <option value="adaptive_unet">Adaptive U-Net (Default)</option>
+                    <option value="deeplabv3">DeepLabV3+</option>
+                    <option value="custom">Custom Model</option>
+                </select>
+                
+                <label for="thresholdInput">Weed Sensitivity:</label>
+                <input type="range" id="thresholdInput" min="0" max="100" value="70">
+                <span id="thresholdValue">70%</span>
+            </div>
+
+            <button id="segmentButton" disabled>🔬 Run Segmentation</button>
+        </section>
+
+        <section class="results-panel">
+            <div class="image-viewer">
+                <div class="image-card">
+                    <h3>Input Image</h3>
+                    <canvas id="inputCanvas"></canvas>
+                    <p id="inputPlaceholder">Your image preview will appear here.</p>
+                </div>
+
+                <div class="image-card">
+                    <h3>Segmented Output</h3>
+                    <canvas id="outputCanvas"></canvas>
+                    <p id="outputPlaceholder">Segmentation results will be displayed here.</p>
+                </div>
+            </div>
+
+            <div class="legend-area">
+                <h3>Segmentation Legend</h3>
+                <ul>
+                    <li class="legend-crop">Crop</li>
+                    <li class="legend-weed">Weed</li>
+                    <li class="legend-background">Background / Soil</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 payal and team Powered segment crops and weeds automatically Agriculture Project</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
